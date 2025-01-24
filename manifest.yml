@@ -5,13 +5,23 @@ modules:
       resolver:
         function: resolver
       title: html-js-runner
-      description: Inserts Hello world!
+      description: Accepts raw HTML/JS and renders it
+      parameters:
+        - key: code
+          name: Raw HTML/JS
+          description: Paste your HTML/JS snippet here
+          type: string
+          defaultValue: "<div>Hello from the new macro</div>"
+          # You can remove defaultValue if you want an empty input by default
+
   function:
     - key: resolver
       handler: index.handler
+
 resources:
   - key: main
     path: static/hello-world/build
+
 app:
   runtime:
     name: nodejs22.x
